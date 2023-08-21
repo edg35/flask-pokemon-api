@@ -13,7 +13,7 @@ This project uses Flask and MongoDB to build a pokedex api for development use.
 ```bash
   /api/v1/getsinglerandompokemon
 ```
-This endpoint takes in o parameters and return a random pokemon from the database.
+This endpoint takes in no parameter and returns a random pokemon from the database.
 
 ```bash
   /api/v1/getlistrandompokemon/<int:n>
