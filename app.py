@@ -13,7 +13,12 @@ pokedex = db.pokedex
 
 @app.route('/', methods=['GET'])
 def index():
-    return "Welcome to Pokedex!"
+    return render_template('index.html')
+
+#TODO: implement api endpoint to get multiple random pokemon
+#TODO: implement api endpoint to get pokemon by region
+#TODO: implement api endpoint to redirect user to pokemon info screen
+#TODO: implement api  ednpoint to handle 404 errors
 
 @app.route('/api/v1/getsinglerandompokemon', methods=['GET'])
 def getsinglerandompokemon():
