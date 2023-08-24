@@ -1,0 +1,27 @@
+body {
+    background-color: #F5F5F5;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+}
+
+.hero-section-container {
+
+}
+
+.endpoint-section-container {
+
+}
+
+.sample-response-section {
+
+}
+
+.question-form-section {
+
+}

@@ -19,10 +19,6 @@ def index():
 def not_found(request):
     return render_template('404.html')
 
-#TODO: implement api endpoint to get pokemon by region
-#TODO: implement api endpoint to redirect user to pokemon info screen
-#TODO: implement api endpoint to handle 404 errors
-
 @app.route('/api/v1/getsinglerandompokemon', methods=['GET'])
 def getsinglerandompokemon():
     #generate random pokemon index
@@ -73,6 +69,22 @@ def getpokemonbyname(name):
     
     #check if name exists in database, return error if not
     return pokemon if len(pokemon) > 0 else make_response('Error: Invalid name')
+
+@app.route('/api/v1/getpokemonbyregion/<string:region>', methods=['GET'])
+def getpokemonbyregion(region):
+    #check to see if reqion is valid, return error
+    regions = ["kanto", "sinnoh", "unova", "kalos", "paldea", "joto"]
+    formatted_string = region.lower()
+    
+    if formatted_string not in regions:
+        error_response = make_response('Error: Invalid region')
+        error_response.status = 404
+        return error_response
+    
+    formatted_string += "_number"
+    
+    pokemon = pokedex.find({formatted_string: {"$type": "int"}})
+    return json.loads(json_util.dumps(pokemon))
 
 if __name__ == '__main__':
     app.run(debug=True)
