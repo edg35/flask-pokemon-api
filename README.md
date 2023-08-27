@@ -13,7 +13,7 @@ This project uses Flask and MongoDB to build a pokedex api for development use.
 ```bash
   /api/v1/getsinglerandompokemon
 ```
-This endpoint takes in o parameters and return a random pokemon from the database.
+This endpoint takes in no parameter and returns a random pokemon from the database.
 
 ```bash
   /api/v1/getlistrandompokemon/<int:n>
@@ -33,6 +33,10 @@ This endpoint takes in a parameter id and returns the corresponding pokemon if i
 This endpoint takes in a parameter name and returns the corresponding pokemon if
  it exists in the database.
 
+```bash
+  /api/v1/getpokemonbyregion/<string:region>
+```
+This endpoint takes in a string region and return all the pokemon from that region if the region exists
 ## Tech Stack
 
 **Client:** HTML, CSS

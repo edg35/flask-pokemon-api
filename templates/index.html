@@ -2,18 +2,42 @@
 <html>
     <head>
         <title>Pokedex</title>
-        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}" />
     </head>
     <body>
         <nav>
             <h3>Pokedex</h3>
-            <input type="text" placeholder="Search by name or index..." />
+            <div class="search-bar-container">
+                <input type="text" placeholder="Search by name or index..." />
+                <button type="button" />
+            </div>
+            <div></div>
         </nav>
         <div class="hero-section-container">
 
         </div>
         <div class="endpoint-section-container">
-
+            <h5>Endpoints</h5>
+            <div class="endpoint-box">
+                <p>/api/v1/getsinglerandompokemon</p>
+            </div>
+            <p class="endpoint-summary">This endpoint takes in no parameter and returns a random pokemon from the database.</p>
+            <div class="endpoint-box">
+                <p>/api/v1/getlistrandompokemon/int:n</p>
+            </div>
+            <p class="endpoint-summary">This endpoint takes in a parameter n (the number of items returned) and returns n items from the database.</p>
+            <div class="endpoint-box">
+                <p>/api/v1/getpokemonbyid/int:id</p>
+            </div>
+            <p class="endpoint-summary">This endpoint takes in a parameter id and returns the corresponding pokemon if it exists in the database.</p>
+            <div class="endpoint-box">
+                <p>/api/v1/getpokemonbyname/string:name</p>
+            </div>
+            <p class="endpoint-summary">This endpoint takes in a parameter name and returns the corresponding pokemon if it exists in the database.</p>
+            <div class="endpoint-box">
+                <p>/api/v1/getpokemonbyregion/string:region</p>
+            </div>
+            <p class="endpoint-summary">This endpoint takes in a string region and return all the pokemon from that region if the region exists</p>
         </div>
         <div class="sample-response-section">
 
