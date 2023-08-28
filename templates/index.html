@@ -40,10 +40,30 @@
             <p class="endpoint-summary">This endpoint takes in a string region and return all the pokemon from that region if the region exists</p>
         </div>
         <div class="sample-response-section">
-
+            
         </div>
         <div class="question-form-section">
-
+            <h3>Contact us</h3>
+            <p>If you have any questions, suggestions, or requests please use the form below</p>
+            <form action="/handleformsubmit" method="post">
+                <ul>
+                    <li>
+                        <Label for="name">Name:</Label>
+                        <input type="text" id="name" name="name" />
+                    </li>
+                    <li>
+                        <Label for="email">Email:</Label>
+                        <input type="text" id="email" name="email" />
+                    </li>
+                    <li>
+                        <Label for="name">Message:</Label>
+                        <input type="text" id="message" name="message" />
+                    </li>
+                    <li class="button">
+                        <button type="submit">Send your message</button>
+                    </li>
+                </ul>
+            </form>
         </div>
     </body>
 </html>

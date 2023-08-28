@@ -3,7 +3,7 @@ import math
 import random
 
 from bson import json_util
-from flask import Flask, make_response, render_template
+from flask import Flask, make_response, render_template, request
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -86,6 +86,19 @@ def getpokemonbyregion(region):
     pokemon = pokedex.find({formatted_string: {"$type": "int"}})
     return json.loads(json_util.dumps(pokemon))
 
+@app.route('/handleformsubmit', methods=['POST'])
+def handleformsubmit():
+    #TODO: handle response from form and present it to developer
+    if request.method == 'POST':
+        form = request.form
+        print(form)
+        return render_template("index.html")
+     
+    if request.method == 'GET':
+        res = make_response('Get request not allowed')
+        res.status = 404
+        return res
+         
 if __name__ == '__main__':
     app.run(debug=True)
     
