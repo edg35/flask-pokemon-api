@@ -33,9 +33,12 @@ nav > h3 {
 
 .hero-section-container {
     display: flex;
-    height: 500px;
+    height: 550px;
     width: auto;
-    background-color: beige;
+    background-image: url('/static/hero.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .endpoint-section-container {

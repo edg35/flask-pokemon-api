@@ -1,5 +1,4 @@
 import json
-import math
 import random
 
 from bson import json_util
@@ -86,12 +85,22 @@ def getpokemonbyregion(region):
     pokemon = pokedex.find({formatted_string: {"$type": "int"}})
     return json.loads(json_util.dumps(pokemon))
 
+@app.route('/search', methods=['POST'])
+def search():
+    if request.method == 'GET':
+        res = make_response('Error: get request not supported')
+        res.status = 404
+        return res
+    
+    query = request.form
+    #TODO: parse query and search database
+    print(query)
+
 @app.route('/handleformsubmit', methods=['POST'])
 def handleformsubmit():
     #TODO: handle response from form and present it to developer
     if request.method == 'POST':
         form = request.form
-        print(form)
         return render_template("index.html")
      
     if request.method == 'GET':
